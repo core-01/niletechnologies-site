@@ -1,0 +1,11 @@
+import { useToastStore } from '@/store/toastStore'
+
+export function useToast() {
+  const push = useToastStore((s) => s.push)
+  return {
+    success: (message: string) => push('success', message),
+    error: (message: string) => push('error', message),
+    info: (message: string) => push('info', message),
+    warning: (message: string) => push('warning', message),
+  }
+}
